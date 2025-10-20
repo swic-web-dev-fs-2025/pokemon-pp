@@ -1,193 +1,39 @@
-# Node.js Template Repository
+# Pokemon Team Builder - Pair Programming Exercise
 
-A starter template for Node.js projects with ESLint, Prettier, and VS Code configurations designed for SWIC Web Development coursework.
+## Your Mission 🎯
 
-## Getting Started
+You're working on a Pokemon team building app. Some functions are complete, some have bugs, and some are missing entirely. Your job: **fix, complete, and test everything!**
 
-This repository was created specifically for you through GitHub Classroom. It contains all the professional development tools and configurations you need to write high-quality JavaScript code.
+## Git Workflow
 
-### Prerequisites
-
-Before you begin, ensure you have completed the course setup requirements:
-
-- Node.js and npm installed on your system
-- Git configured with your name and email
-- GitHub CLI (gh) authenticated with your GitHub account
-- VS Code with the recommended extensions
-- Warp Terminal (or your preferred terminal application)
-
-If you need help with any of these prerequisites, refer to the course setup lessons or ask for assistance.
-
-### Setup Instructions
-
-Follow these steps carefully to get your development environment ready:
-
-#### Step 1: Clone Your Repository
-
-**Important**: Use the repository URL that was created specifically for you through GitHub Classroom. This ensures you have the correct permissions to push your work.
+### Branch Naming
 
 ```bash
-# Navigate to your development directory
-# IMPORTANT: Avoid OneDrive/cloud sync folders - they cause issues with node_modules
-cd ~/Code  # or wherever you keep your coding projects (NOT in OneDrive)
-
-# Clone YOUR repository (replace YOUR-USERNAME with your actual GitHub username)
-gh repo clone YOUR-USERNAME/repository-name
-
-# Navigate into your project directory
-cd repository-name
+git switch -c ticket-1-filter-tests
 ```
 
-**Common Mistake Alert**: Do not clone the original template repository directly (like `gh repo clone manavm1990/node-template-repo`). If you do this, you will not be able to push your changes back to GitHub because you do not have write permissions to the original template. Always use your own repository URL that was created through GitHub Classroom.
-
-#### Step 2: Install Dependencies
-
-This project uses several development tools that need to be installed before you can begin coding:
+### Commit Messages (Examples)
 
 ```bash
-# Install all required packages
-npm install
+git commit -m "test: add water type filter test"
+git commit -m "test: add empty array edge case for filterByType"
+git commit -m "fix: handle ties in getStrongestPokemon function"
+git commit -m "feat: implement sortByName with immutable sort"
 ```
 
-This command reads the `package.json` file and installs ESLint for code quality checking, Prettier for code formatting, and other essential development dependencies.
-
-#### Step 3: Open in VS Code
+### Push Your Work
 
 ```bash
-# Open the entire project in VS Code
-code .
+git push origin ticket-1-filter-tests
 ```
 
-When VS Code opens, you may see a notification asking if you want to install recommended extensions. Click "Install All" if prompted. These extensions will help you write better code by providing syntax highlighting, error detection, and automatic formatting.
+Then create a Pull Request on GitHub!
 
-#### Step 4: Verify Your Setup
+## Tips
 
-Let's make sure everything is working correctly:
+- **Read error messages** - they tell you what's broken
+- **Use Copilot and even Warp** for help, but make sure you understand the code. You are not to modify any of the MD files. You are not to use any other external AI 🤖 resources.
+- **Commit frequently** - after each small win
+- **Driver/Navigator**: Switch roles every 15 minutes
 
-```bash
-# Create a simple test file
-echo 'console.info("Development environment is ready!");' > src/test.js
-
-# Run the test file
-node src/test.js
-```
-
-You should see the message "Development environment is ready!" printed in your terminal. If you see this message, your setup is complete and working correctly.
-
-#### Step 5: Test Your Development Tools
-
-To ensure ESLint and Prettier are working properly:
-
-1. Open `src/test.js` in VS Code
-2. Add some intentionally problematic code like: `var x = 5` (ESLint should show a warning about using `var`)
-3. Save the file (Prettier should automatically format it)
-4. If you see ESLint warnings and the file gets formatted, your tools are working correctly
-
-### Understanding Your Project Structure
-
-Your repository contains several important files and folders that work together to create a professional development environment:
-
-#### Core Directories
-
-**`src/`** - This is where you will write all your JavaScript code. Keep your source files organized in this directory. Each assignment or exercise should have its own clearly named file.
-
-**`.vscode/`** - Contains VS Code configuration files that ensure consistent development experience. These files tell VS Code which extensions to recommend and how to format your code.
-
-**`node_modules/`** - Contains all the installed packages and dependencies. You should never modify files in this directory manually, and it is automatically excluded from Git tracking.
-
-#### Configuration Files
-
-**`package.json`** - The manifest file for your project. It lists all the dependencies, scripts, and metadata about your project. This file tells npm what packages to install when someone runs `npm install`.
-
-**`package-lock.json`** - Locks the specific versions of dependencies to ensure consistent installations across different environments. This file is automatically generated and should not be edited manually.
-
-**`eslint.config.js`** - Configuration for ESLint, which analyzes your code for potential errors and enforces coding standards. The rules in this file help you write cleaner, more consistent JavaScript.
-
-**`.gitignore`** - Tells Git which files and folders to ignore when tracking changes. This prevents sensitive files and generated directories like `node_modules/` from being committed to your repository.
-
-**`README.md`** - This file! Contains important information about your project and how to set it up.
-
-### Development Workflow
-
-Once your environment is set up, you will follow this workflow for each assignment:
-
-#### Writing Code
-
-1. Create a new JavaScript file in the `src/` directory with a descriptive name
-2. Write your code, using the ESLint suggestions to improve quality
-3. Test your code frequently by running `node src/your-file.js`
-4. Save your files regularly (Prettier will format them automatically)
-
-#### Version Control with Git
-
-Track your progress using Git commits:
-
-```bash
-# Check what files have changed
-git status
-
-# Add your new or modified files
-git add src/your-file.js
-
-# Commit with a clear, descriptive message
-git commit -m "Add solution for array methods exercise"
-
-# Push your changes to GitHub
-git push origin main
-```
-
-**Best Practice**: Make frequent, small commits with clear messages. This creates a history of your work that you can reference later and makes it easier to identify when something went wrong.
-
-### Features Included
-
-This template provides several professional development features:
-
-**Modern JavaScript Enforcement** - ESLint is configured to prevent common mistakes like using `var` instead of `const` or `let`, and encourages modern JavaScript practices.
-
-**Automatic Code Formatting** - Prettier ensures your code always looks consistent and professional, regardless of how you initially type it.
-
-**Clean Code Principles** - The ESLint configuration includes rules that promote readable, maintainable code following industry best practices.
-
-**VS Code Integration** - Recommended extensions and settings are included to provide the best possible development experience in VS Code.
-
-**Git Ready** - The repository is already configured with appropriate `.gitignore` settings for Node.js projects.
-
-### Troubleshooting Common Issues
-
-#### "npm install" fails
-
-If you encounter errors during `npm install`, try these solutions:
-
-1. Make sure you have Node.js installed: `node --version`
-2. Clear npm cache: `npm cache clean --force`
-3. Delete `node_modules/` and `package-lock.json`, then run `npm install` again
-
-#### ESLint not working in VS Code
-
-1. Ensure the ESLint extension is installed and enabled
-2. Restart VS Code
-3. Check that you are in the correct directory (the one containing `eslint.config.js`)
-
-#### Cannot push to GitHub
-
-1. Verify you cloned your own repository, not the template: `git remote -v`
-2. Check that you are authenticated with GitHub CLI: `gh auth status`
-3. Make sure you have committed your changes before pushing: `git status`
-
-#### Code is not being formatted automatically
-
-1. Ensure the Prettier extension is installed in VS Code
-2. Check that "Format on Save" is enabled in your VS Code settings
-3. Verify that Prettier is set as your default formatter
-
-### Getting Help
-
-If you encounter setup issues not covered above:
-
-- **Check your terminal output** for specific error messages - they usually tell you exactly what's wrong
-- **Verify prerequisites** - ensure Node.js, Git, and GitHub CLI are properly installed and authenticated
-- **Use Warp's AI assistant** - type `#` followed by your question to get help with terminal commands and setup issues
-
-### Ready to Code
-
-Your development environment is now configured. Return to your lesson instructions to begin the actual assignment.
+Good luck! 🚀
