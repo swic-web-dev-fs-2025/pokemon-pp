@@ -38,7 +38,12 @@ describe("filterByType", () => {
       expect(result[0].name).toBe("Squirtle");
     });
   // TODO: Add test for type that doesn't exist (should return empty array)
-  
+  describe("filterByType", () => {
+    test("should return empty array for non existent type", () => {
+      const result = filterByType(testPokemon, "psychic");
+      expect(result.length).toBe(0);
+    });
+  });
 
 describe("getPokemonNames", () => {
   test("should return array of Pokemon names", () => {
