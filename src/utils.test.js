@@ -4,7 +4,7 @@ import {
   getPokemonNames,
   getStrongestPokemon,
   sortByName,
-} from "utils.js";
+} from "./utils.js";
 
 // Sample test data
 const testPokemon = [
@@ -25,8 +25,8 @@ const testPokemon = [
     type: "water",
     hp: 79,
     attack: 83,
-    defense: 100
-  }
+    defense: 100,
+  },
 ];
 
 describe("filterByType", () => {
@@ -36,7 +36,6 @@ describe("filterByType", () => {
     expect(result[0].name).toBe("Charmander");
   });
 
-  
   // TODO: Add test for water type
   describe("filterByType", () => {
     test("should return only water type Pokemon", () => {
@@ -44,6 +43,7 @@ describe("filterByType", () => {
       expect(result.length).toBe(1);
       expect(result[0].name).toBe("Squirtle");
     });
+  });
   // TODO: Add test for type that doesn't exist (should return empty array)
   describe("filterByType", () => {
     test("should return empty array for non existent type", () => {
@@ -51,16 +51,17 @@ describe("filterByType", () => {
       expect(result.length).toBe(0);
     });
   });
+});
 
-  //TODO: Add test: "should return multiple Pokemon of same type"
-  describe("should return multiple Pokemon of same type", () => {
-    test("should return multiple Pokemon of same type", () => {
-      const result = filterByType( testPokemon, "water");
-      expect(result.length).toBe(2);
-      expect(result[0].name).toBe("Squirtle");
-      expect(result[1].name).toBe("Blastoise");
-    });
+// TODO: Add test: "should return multiple Pokemon of same type"
+describe("should return multiple Pokemon of same type", () => {
+  test("should return multiple Pokemon of same type", () => {
+    const result = filterByType(testPokemon, "water");
+    expect(result.length).toBe(2);
+    expect(result[0].name).toBe("Squirtle");
+    expect(result[1].name).toBe("Blastoise");
   });
+});
 
 describe("getPokemonNames", () => {
   test("should return array of Pokemon names", () => {
