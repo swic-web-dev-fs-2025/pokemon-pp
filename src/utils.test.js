@@ -29,8 +29,16 @@ describe("filterByType", () => {
     expect(result[0].name).toBe("Charmander");
   });
 
-  // TODO: Add test for water type
-  // TODO: Add test for type that doesn't exist (should return empty array)
+  test("should return only water type Pokemon", () => {
+    const result = filterByType(testPokemon, "water");
+    expect(result.length).toBe(1);
+    expect(result[0].name).toBe("Squirtle");
+  });
+
+  test("should return empty array for non existent type", () => {
+    const result = filterByType(testPokemon, "psychic");
+    expect(result.length).toBe(0);
+  });
 });
 
 describe("getPokemonNames", () => {
