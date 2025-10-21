@@ -5,7 +5,7 @@ import {
   getStrongestPokemon,
   sortByName,
   calculateAverageHP,
-} from "utils.js";
+} from "./utils.js";
 
 // Sample test data
 const testPokemon = [
