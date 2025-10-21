@@ -4,7 +4,7 @@ import {
   getPokemonNames,
   getStrongestPokemon,
   sortByName,
-} from ".utils.js";
+} from "utils.js";
 
 // Sample test data
 const testPokemon = [
