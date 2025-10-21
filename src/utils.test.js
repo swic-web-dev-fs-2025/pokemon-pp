@@ -36,7 +36,6 @@ describe("filterByType", () => {
     expect(result[0].name).toBe("Charmander");
   });
 
-  // TODO: Add test for water type
   describe("filterByType", () => {
     test("should return only water type Pokemon", () => {
       const result = filterByType(testPokemon, "water");
@@ -44,7 +43,7 @@ describe("filterByType", () => {
       expect(result[0].name).toBe("Squirtle");
     });
   });
-  // TODO: Add test for type that doesn't exist (should return empty array)
+
   describe("filterByType", () => {
     test("should return empty array for non existent type", () => {
       const result = filterByType(testPokemon, "psychic");
@@ -53,7 +52,6 @@ describe("filterByType", () => {
   });
 });
 
-// TODO: Add test: "should return multiple Pokemon of same type"
 describe("should return multiple Pokemon of same type", () => {
   test("should return multiple Pokemon of same type", () => {
     const result = filterByType(testPokemon, "water");
