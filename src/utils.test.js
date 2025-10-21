@@ -4,7 +4,8 @@ import {
   getPokemonNames,
   getStrongestPokemon,
   sortByName,
-} from ".utils.js";
+  calculateAverageHP,
+} from "utils.js";
 
 // Sample test data
 const testPokemon = [
@@ -57,7 +58,7 @@ describe("sortByName", () => {
   // TODO: Write test to verify original array is not modified (immutability)
 });
 
-describe("calculateAverageHP", (calculateAverageHP) => {
+describe("calculateAverageHP", () => {
   test("should calculate average HP correctly", () => {
     const pokemon = [
       { name: "Pikachu", hp: 35 },
