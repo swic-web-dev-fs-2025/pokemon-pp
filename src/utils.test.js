@@ -36,29 +36,23 @@ describe("filterByType", () => {
     expect(result[0].name).toBe("Charmander");
   });
 
-  describe("filterByType", () => {
-    test("should return only water type Pokemon", () => {
-      const result = filterByType(testPokemon, "water");
-      expect(result.length).toBe(1);
-      expect(result[0].name).toBe("Squirtle");
-    });
+  test("should return only water type Pokemon", () => {
+    const result = filterByType(testPokemon, "water");
+    expect(result.length).toBe(1);
+    expect(result[0].name).toBe("Squirtle");
   });
 
-  describe("filterByType", () => {
-    test("should return empty array for non existent type", () => {
-      const result = filterByType(testPokemon, "psychic");
-      expect(result.length).toBe(0);
-    });
+  test("should return empty array for non existent type", () => {
+    const result = filterByType(testPokemon, "psychic");
+    expect(result.length).toBe(0);
   });
 });
 
-describe("should return multiple Pokemon of same type", () => {
-  test("should return multiple Pokemon of same type", () => {
-    const result = filterByType(testPokemon, "water");
-    expect(result.length).toBe(2);
-    expect(result[0].name).toBe("Squirtle");
-    expect(result[1].name).toBe("Blastoise");
-  });
+test("should return multiple Pokemon of same type", () => {
+  const result = filterByType(testPokemon, "water");
+  expect(result.length).toBe(2);
+  expect(result[0].name).toBe("Squirtle");
+  expect(result[1].name).toBe("Blastoise");
 });
 
 describe("getPokemonNames", () => {
