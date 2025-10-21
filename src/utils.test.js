@@ -75,9 +75,10 @@ describe("calculateAverageHP", () => {
     ];
 
     const result = calculateAverageHP(pokemon);
+    const expectedAvg = (35 + 39 + 44) / 3;
 
     // Average of 35, 39, 44 = 39.33...
-    expect(result).toBeCloseTo(39.33, 1);
+    expect(result).toBeCloseTo(expectedAvg, 1);
   });
 
   test("should return 0 for empty array", () => {
