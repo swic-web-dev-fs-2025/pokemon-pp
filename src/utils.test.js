@@ -4,7 +4,8 @@ import {
   getPokemonNames,
   getStrongestPokemon,
   sortByName,
-} from "utils.js";
+  calculateAverageHP,
+} from "./utils.js";
 
 // Sample test data
 const testPokemon = [
@@ -28,8 +29,16 @@ describe("filterByType", () => {
     expect(result[0].name).toBe("Charmander");
   });
 
-  // TODO: Add test for water type
-  // TODO: Add test for type that doesn't exist (should return empty array)
+  test("should return only water type Pokemon", () => {
+    const result = filterByType(testPokemon, "water");
+    expect(result.length).toBe(1);
+    expect(result[0].name).toBe("Squirtle");
+  });
+
+  test("should return empty array for non existent type", () => {
+    const result = filterByType(testPokemon, "psychic");
+    expect(result.length).toBe(0);
+  });
 });
 
 describe("getPokemonNames", () => {
@@ -55,4 +64,30 @@ describe("getStrongestPokemon", () => {
 describe("sortByName", () => {
   // TODO: Write test to verify Pokemon are sorted alphabetically
   // TODO: Write test to verify original array is not modified (immutability)
+});
+
+describe("calculateAverageHP", () => {
+  test("should calculate average HP correctly", () => {
+    const pokemon = [
+      { name: "Pikachu", hp: 35 },
+      { name: "Charmander", hp: 39 },
+      { name: "Squirtle", hp: 44 },
+    ];
+
+    const result = calculateAverageHP(pokemon);
+    const expectedAvg = (35 + 39 + 44) / 3;
+
+    // Average of 35, 39, 44 = 39.33...
+    expect(result).toBeCloseTo(expectedAvg, 1);
+  });
+
+  test("should return 0 for empty array", () => {
+    const result = calculateAverageHP([]);
+    expect(result).toBe(0);
+  });
+
+  test("should handle single Pokemon", () => {
+    const result = calculateAverageHP([{ hp: 100 }]);
+    expect(result).toBe(100);
+  });
 });
