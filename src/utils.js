@@ -7,7 +7,11 @@ export const getPokemonNames = (pokemonList) => {
 };
 
 export const getStrongestPokemon = (pokemonList) => {
-  let strongest = pokemonList[0];
+  
+
+  const sortedByAttack = structuredClone(pokemonList).sort((a, b) => b.attack - a.attack);
+  const highestAttack = sortedByAttack[0].attack;
+
 
   for (let i = 1; i < pokemonList.length; i++) {
     if (pokemonList[i].attack > strongest.attack) {
