@@ -7,6 +7,7 @@ import {
   calculateAverageHP,
 } from "./utils.js";
 
+// Arrange for all tests
 const MOCK_DATA = [
   { id: 1, name: "Bulbasaur", type: "grass", hp: 45, attack: 49, defense: 49 },
   { id: 4, name: "Charmander", type: "fire", hp: 39, attack: 52, defense: 43 },
@@ -23,9 +24,17 @@ const MOCK_DATA = [
 
 describe("filterByType", () => {
   test("should return only fire type Pokemon", () => {
-    const result = filterByType(MOCK_DATA, "fire");
-    expect(result.length).toBe(1);
-    expect(result[0].name).toBe("Charmander");
+    // Arrange Inputs
+    const POKEMON_TYPE = "fire";
+    // Arrange Outputs
+    const EXPECTED_LENGTH = 1;
+    const EXPECTED_NAME = "Charmander";
+
+    const result = filterByType(MOCK_DATA, POKEMON_TYPE); // Act
+
+    // Assert
+    expect(result.length).toBe(EXPECTED_LENGTH);
+    expect(result[0].name).toBe(EXPECTED_NAME);
   });
 
   test("should return only water type Pokemon", () => {
