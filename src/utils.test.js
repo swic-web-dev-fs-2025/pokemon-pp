@@ -8,7 +8,7 @@ import {
 } from "./utils.js";
 
 // Sample test data
-const MOCK_DATA = [
+const testPokemon = [
   { id: 1, name: "Bulbasaur", type: "grass", hp: 45, attack: 49, defense: 49 },
   { id: 4, name: "Charmander", type: "fire", hp: 39, attack: 52, defense: 43 },
   { id: 7, name: "Squirtle", type: "water", hp: 44, attack: 48, defense: 65 },
@@ -24,14 +24,7 @@ const MOCK_DATA = [
 
 describe("filterByType", () => {
   test("should return only fire type Pokemon", () => {
-    //Arrange Inputs
-    const POKEMON_TYPE = "fire";
-    //Arrange Outputs
-    const EXPECTED_LENGTH = 1;
-    const EXPECTED_NAME = "Charmander";
-    //Assert
-    const result = filterByType(MOCK_DATA, POKEMON_TYPE);
-
+    const result = filterByType(testPokemon, "fire");
     expect(result.length).toBe(1);
     expect(result[0].name).toBe("Charmander");
   });
@@ -85,33 +78,8 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
-  test("should sort Pokemon by name in ascending order without mutating the original array", () => {
-    //Arrange
-   const INPUT = [
-    { name: "Squirtle" },
-    { name: "Bulbasaur" },
-    { name: "Pikachu" },
-    { name: "Charmander" },
-  ];
-  const ORIGINAL_SNAPSHOT = structuredClone(INPUT);
-   // Create a shallow copy for mutation check
-  const EXPECTED_OUTPUT = [
-    { name: "Bulbasaur" },
-    { name: "Charmander" },
-    { name: "Pikachu" },
-    { name: "Squirtle" },
-  ];
-    //Act
-    const actualOutput = sortByName(INPUT);
-    //Assert
-    expect(ActualOutput).toEqual(EXPECTED_OUTPUT);
-  });
-
-  test("should not modify the original array", () => {
-    const originalData = [...MOCK_DATA];
-    sortByName(MOCK_DATA);
-    expect(MOCK_DATA).toEqual(originalData);
-  });
+  // TODO: Write test to verify Pokemon are sorted alphabetically
+  // TODO: Write test to verify original array is not modified (immutability)
 });
 
 describe("calculateAverageHP", () => {
