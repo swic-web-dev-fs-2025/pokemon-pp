@@ -66,12 +66,21 @@ describe("getStrongestPokemon", () => {
     const result = getStrongestPokemon(MOCK_DATA);
     expect(result.name).toBe("Pikachu"); // Pikachu has 55 attack
 
+    test("should return all Pokemon when multiple have same highest attack", () => {
+
       const INPUT = [
       { name: "PokemonA", attack: 70 },
       { name: "PokemonB", attack: 85 },
       { name: "PokemonC", attack: 85 },
       { name: "PokemonD", attack: 60 },
-    ]
+    ];
+     const OUTPUT = [
+      { name: "PokemonB", attack: 85 },
+      { name: "PokemonC", attack: 85 },
+    ];
+    const actualOutput = getStrongestPokemon(INPUT);
+
+    expect(actualResults).toEqual(EXPECTED_OUTPUT);
   });
 });
 
