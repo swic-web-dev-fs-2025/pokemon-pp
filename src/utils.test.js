@@ -69,7 +69,7 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
-  test("should sort Pokemon by name in ascending order", () => {
+  test("should sort Pokemon by name in ascending order without mutating the original array", () => {
     //Arrange
    const INPUT = [
     { name: "Squirtle" },
@@ -77,15 +77,16 @@ describe("sortByName", () => {
     { name: "Pikachu" },
     { name: "Charmander" },
   ];
-
+  const ORIGINAL_SNAPSHOT = structuredClone(INPUT);
+   // Create a shallow copy for mutation check
   const EXPECTED_OUTPUT = [
     { name: "Bulbasaur" },
     { name: "Charmander" },
     { name: "Pikachu" },
     { name: "Squirtle" },
-
+  ];
     //Act
-    const ActualOutput = sortByName(INPUT);
+    const actualOutput = sortByName(INPUT);
     //Assert
     expect(ActualOutput).toEqual(EXPECTED_OUTPUT);
   });
