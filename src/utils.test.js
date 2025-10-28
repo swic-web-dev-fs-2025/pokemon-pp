@@ -70,7 +70,7 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
-  test("should sort Pokemon by name in ascending order", () => {
+  test("should sort Pokemon by name in ascending order without mutating the original array", () => {
     // Arrange
     const INPUT = [
       { name: "Squirtle" },
@@ -78,6 +78,8 @@ describe("sortByName", () => {
       { name: "Pikachu" },
       { name: "Charmander" },
     ];
+    // `structuredClone` creates a deep copy of the input to verify immutability
+    const ORIGINAL_SNAPSHOT = structuredClone(INPUT);
 
     const EXPECTED_OUTPUT = [
       { name: "Bulbasaur" },
@@ -90,10 +92,10 @@ describe("sortByName", () => {
     const actualOutput = sortByName(INPUT);
 
     // Assert
-    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT); // sorted result correct
+    expect(actualOutput).not.toBe(INPUT); // new array instance
+    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT); // original unchanged (order preserved)
   });
-
-  // TODO: Write test to verify original array is not modified (immutability)});
 });
 
 describe("calculateAverageHP", () => {
