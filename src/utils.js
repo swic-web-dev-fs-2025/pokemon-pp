@@ -19,7 +19,7 @@ export const getStrongestPokemon = (pokemonList) => {
 };
 
 export const sortByName = (pokemonList) => {
-  return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
+  structuredClone((a, b) => a.name.localeCompare(b.name));
 };
 
 export const calculateAverageHP = (pokemonList) => {
