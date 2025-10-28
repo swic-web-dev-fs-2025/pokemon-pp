@@ -26,10 +26,10 @@ describe("filterByType", () => {
   test("should return only fire type Pokemon", () => {
     //Arrange Inputs
     const POKEMON_TYPE = "fire";
+    //Arrange Outputs
     const EXPECTED_LENGTH = 1;
-    //Ararnge Outputs
     const EXPECTED_NAME = "Charmander";
-//Assert
+    //Assert
     const result = filterByType(MOCK_DATA, POKEMON_TYPE);
 
     expect(result.length).toBe(1);
