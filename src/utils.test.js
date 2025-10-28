@@ -106,4 +106,4 @@ describe("calculateAverageHP", () => {
     const result = calculateAverageHP([{ hp: 100 }]);
     expect(result).toBe(100);
   });
-});
+});})
