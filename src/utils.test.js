@@ -92,9 +92,9 @@ describe("sortByName", () => {
     const actualOutput = sortByName(INPUT);
 
     // Assert
-    expect(actualOutput).toEqual(EXPECTED_OUTPUT); // sorted result correct
-    expect(actualOutput).not.toBe(INPUT); // new array instance
-    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT); // original unchanged (order preserved)
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+    expect(actualOutput).not.toBe(INPUT);
+    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT);
   });
 });
 
