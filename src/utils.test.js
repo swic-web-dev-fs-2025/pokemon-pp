@@ -55,9 +55,39 @@ describe("getPokemonNames", () => {
 });
 
 describe("getStrongestPokemon", () => {
-  test("should return Pokemon with highest attack", () => {
-    const result = getStrongestPokemon(MOCK_DATA);
-    expect(result.name).toBe("Pikachu"); // Pikachu has 55 attack
+  test("should return the Pokemon with the highest attack", () => {
+    const INPUT = [
+      { name: "PokemonA", attack: 70 },
+      { name: "PokemonB", attack: 85 }, // Highest attack
+      { name: "PokemonD", attack: 60 },
+    ];
+
+    const EXPECTED_OUTPUT = [{ name: "PokemonB", attack: 85 }];
+
+    const actualOutput = getStrongestPokemon(INPUT);
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+  });
+
+  test("should return all Pokemon when multiple have same highest attack", () => {
+    // Arrange
+    const INPUT = [
+      { name: "PokemonA", attack: 70 },
+      { name: "PokemonB", attack: 85 },
+      { name: "PokemonC", attack: 85 },
+      { name: "PokemonD", attack: 60 },
+    ];
+    const EXPECTED_OUTPUT = [
+      { name: "PokemonB", attack: 85 },
+      { name: "PokemonC", attack: 85 },
+    ];
+
+    // Act
+    const actualOutput = getStrongestPokemon(INPUT);
+
+    // Assert
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+  });
+});
 
     test("should return all Pokemon when multiple have same highest attack", () => {
 
@@ -77,12 +107,10 @@ describe("getStrongestPokemon", () => {
   });
 });
 
-describe("sortByName", () => {
-test("should sort Pokemon alphabetically by name", () => {
-    const result = sortByName(testPokemon);
-    const expectedOrder = ["Bulbasaur", "Charmander", "Pikachu", "Squirtle"];
-    const actualOrder = result.map((pokemon) => pokemon.name);
-    expect(actualOrder).toEqual(expectedOrder);
+    // Assert
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+    expect(actualOutput).not.toBe(INPUT);
+    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT);
   });
 
   test("should not modify the original array", () => {

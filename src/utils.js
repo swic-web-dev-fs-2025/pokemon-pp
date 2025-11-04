@@ -7,19 +7,16 @@ export const getPokemonNames = (pokemonList) => {
 };
 
 export const getStrongestPokemon = (pokemonList) => {
-  
+  // Sort the list by attack in descending order
+  const sortedByAttack = structuredClone(pokemonList).sort(
+    (a, b) => b.attack - a.attack
+  );
 
-  const sortedByAttack = structuredClone(pokemonList).sort((a, b) => b.attack - a.attack);
+  // Get the highest attack value
   const highestAttack = sortedByAttack[0].attack;
 
-
-  for (let i = 1; i < pokemonList.length; i++) {
-    if (pokemonList[i].attack > strongest.attack) {
-      strongest = pokemonList[i];
-    }
-  }
-
-  return strongest;
+  // Filter the list to include only those Pokemon whose attack matches the highest attack value
+  return sortedByAttack.filter((pokemon) => pokemon.attack === highestAttack);
 };
 
 
